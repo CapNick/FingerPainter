@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="hird.nick.psynh1.fingerpainter.MainActivity"
+    android:background="@android:color/black">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:id="@+id/horLayout"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:weightSum="1">
+
+        <view
+            android:layout_width="match_parent"
+            class="hird.nick.psynh1.fingerpainter.FingerPainterView"
+            android:id="@+id/fingerView"
+            android:layout_height="380dp"
+            android:layout_weight="0.76" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/vertLayout">
+
+            <Button
+                android:text="Color"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/btnColor"
+                android:layout_weight="1"
+                android:onClick="switchToColor" />
+
+            <Button
+                android:text="Brush"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/btnBrush"
+                android:layout_weight="1"
+                android:onClick="switchToBrush" />
+
+            <Button
+                android:text="Clear"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/btnClear"
+                android:layout_weight="1"
+                android:onClick="clearView" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+</RelativeLayout>
