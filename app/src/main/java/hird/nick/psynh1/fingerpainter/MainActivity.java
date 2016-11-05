@@ -22,9 +22,15 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         fingerView = (FingerPainterView)findViewById(R.id.fingerView);
+        fingerView.load(getIntent().getData());
 //        btnImageColorPreview = (ImageButton)findViewById(R.id.btnColorPreview);
 //        btnImageColorPreview.setBackgroundColor(fingerView.getColour());
     }
+
+//    @Override
+//    protected void onDestroy(){
+//
+//    }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
