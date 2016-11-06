@@ -125,6 +125,8 @@ public class FingerPainterView extends View {
             bitmap.compress(Bitmap.CompressFormat.PNG, 100, new FileOutputStream(f));
             // save temporary filename to bundle
             bundle.putString("tempfile", f.getAbsolutePath());
+            Log.e("Saving file to", f.getAbsolutePath());
+
         } catch(IOException e) {
             Log.e("FingerPainterView", e.toString());
         } catch(Exception e) {
@@ -141,6 +143,7 @@ public class FingerPainterView extends View {
             try {
                 // load cache file from bundle stored filename
                 File f = new File(bundle.getString("tempfile"));
+                Log.e("Loading file", bundle.getString("tempfile"));
                 Bitmap b = BitmapFactory.decodeStream(new FileInputStream(f));
                 // need to copy the bitmap to create a mutable version
                 bitmap = b.copy(b.getConfig(), true);

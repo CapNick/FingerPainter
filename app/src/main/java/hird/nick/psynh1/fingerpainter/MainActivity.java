@@ -11,11 +11,9 @@ import android.widget.ImageButton;
 
 public class MainActivity extends AppCompatActivity {
 
-    private FingerPainterView fingerView;
-//    private ImageButton btnImageColorPreview;
     static final int CHANGE_COLOR_REQUEST_CODE = 1;
     static final int CHANGE_BRUSH_REQUEST_CODE = 2;
-
+    private FingerPainterView fingerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,8 +21,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         fingerView = (FingerPainterView)findViewById(R.id.fingerView);
         fingerView.load(getIntent().getData());
-//        btnImageColorPreview = (ImageButton)findViewById(R.id.btnColorPreview);
-//        btnImageColorPreview.setBackgroundColor(fingerView.getColour());
+
     }
 
 //    @Override
@@ -55,10 +52,6 @@ public class MainActivity extends AppCompatActivity {
                 fingerView.setBrushWidth(data.getExtras().getInt("BrushSize"));
             }
         }
-    }
-
-    public void clearView(View v){
-        fingerView.clearFocus();
     }
 
     public void switchToColor(View v){

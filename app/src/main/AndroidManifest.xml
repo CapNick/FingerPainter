@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="hird.nick.psynh1.fingerpainter">
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity" android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -20,8 +19,8 @@
                 <data android:mimeType="image/*"/>
             </intent-filter>
         </activity>
-        <activity android:name=".ColorSelectActivity" />
-        <activity android:name=".BrushSelectActivity" />
+        <activity android:name=".ColorSelectActivity" android:screenOrientation="portrait" />
+        <activity android:name=".BrushSelectActivity" android:screenOrientation="portrait" />
     </application>
 
 </manifest>

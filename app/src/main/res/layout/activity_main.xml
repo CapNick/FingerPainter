@@ -8,23 +8,22 @@
     tools:context="hird.nick.psynh1.fingerpainter.MainActivity"
     android:background="@android:color/black">
 
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:id="@+id/horLayout"
+        android:weightSum="1"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:weightSum="1">
+        android:layout_alignParentStart="true">
 
         <view
             android:layout_width="match_parent"
             class="hird.nick.psynh1.fingerpainter.FingerPainterView"
             android:id="@+id/fingerView"
-            android:layout_height="380dp"
-            android:layout_weight="0.76" />
+            android:layout_height="0dp"
+            android:layout_weight="1" />
 
         <LinearLayout
             android:orientation="horizontal"
@@ -48,15 +47,6 @@
                 android:layout_weight="1"
                 android:onClick="switchToBrush" />
 
-            <Button
-                android:text="Clear"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/btnClear"
-                android:layout_weight="1"
-                android:onClick="clearView" />
-
         </LinearLayout>
-
     </LinearLayout>
 </RelativeLayout>
