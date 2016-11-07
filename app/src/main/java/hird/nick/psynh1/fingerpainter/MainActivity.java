@@ -1,6 +1,5 @@
 package hird.nick.psynh1.fingerpainter;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Paint;
 import android.support.v7.app.AppCompatActivity;

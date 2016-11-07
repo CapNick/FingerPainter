@@ -177,7 +177,9 @@ public class FingerPainterView extends View {
                     InputStream stream = context.getContentResolver().openInputStream(uri);
                     Bitmap bm = BitmapFactory.decodeStream(stream);
                     Log.d("Current:", "w"+w+"h"+h);
-                    bitmap  = Bitmap.createScaledBitmap(bm, Math.max(w, h), Math.max(w, h), false);
+                    bitmap  = Bitmap.createScaledBitmap(bm, w, h, false);
+                    Log.d("Converted:", "w"+bitmap.getWidth()+"h"+bitmap.getHeight());
+
                     stream.close();
                     bm.recycle();
                 } catch(IOException e) {
@@ -186,7 +188,7 @@ public class FingerPainterView extends View {
             }
             else {
                 // create a square bitmap so is drawable even after rotation to landscape
-                bitmap = Bitmap.createBitmap(Math.max(w,h), Math.max(w,h), Bitmap.Config.ARGB_8888);
+                bitmap = Bitmap.createBitmap(h, w, Bitmap.Config.ARGB_8888);
             }
         }
         canvas = new Canvas(bitmap);
