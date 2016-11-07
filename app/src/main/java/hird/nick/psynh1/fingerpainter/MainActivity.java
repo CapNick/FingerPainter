@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
         fingerView.load(getIntent().getData());
     }
 
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 

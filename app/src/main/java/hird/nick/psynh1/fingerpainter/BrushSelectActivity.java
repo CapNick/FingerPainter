@@ -43,13 +43,17 @@ public class BrushSelectActivity extends AppCompatActivity {
     public void changeBrushRound(View view){
         brushType = 0;
         btnTypeSquare.setEnabled(true);
+        btnTypeSquare.setBackgroundColor(0xff607d8b);
         btnTypeRound.setEnabled(false);
+        btnTypeRound.setBackgroundColor(0xffb0bec5);
     }
 
     public void changeBrushSquare(View view){
         brushType = 1;
         btnTypeRound.setEnabled(true);
+        btnTypeRound.setBackgroundColor(0xff607d8b);
         btnTypeSquare.setEnabled(false);
+        btnTypeSquare.setBackgroundColor(0xffb0bec5);
     }
 
     public void returnToMain(View view){
@@ -76,9 +80,11 @@ public class BrushSelectActivity extends AppCompatActivity {
         txtBrushSize.setText(""+brushSize);
         if (brushType == 0) {
             btnTypeRound.setEnabled(false);
+            btnTypeRound.setBackgroundColor(0xffb0bec5);
         }
         else {
             btnTypeSquare.setEnabled(false);
+            btnTypeSquare.setBackgroundColor(0xffb0bec5);
         }
     }
 }

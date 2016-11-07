@@ -118,8 +118,19 @@ public class FingerPainterView extends View {
         Bundle bundle = new Bundle();
         // save superclass view state
         bundle.putParcelable("superState", super.onSaveInstanceState());
-
         try {
+
+            //Save color
+            bundle.putInt("color",getColour());
+            //save brush width
+            bundle.putInt("brush_width",getBrushWidth());
+            //save brush type
+            if(getBrush() == Paint.Cap.ROUND){
+                bundle.putInt("brush_type", 0);
+            }else{
+                bundle.putInt("brush_type", 1);
+            }
+
             // save bitmap to temporary cache file to overcome binder transaction size limit
             File f = File.createTempFile("fingerpaint", ".png", context.getCacheDir());
             bitmap.compress(Bitmap.CompressFormat.PNG, 100, new FileOutputStream(f));
@@ -139,8 +150,19 @@ public class FingerPainterView extends View {
     public void onRestoreInstanceState(Parcelable state) {
         if (state instanceof Bundle) {
             Bundle bundle = (Bundle) state;
-
             try {
+
+                //recovering from bundle stored color
+                setColour(bundle.getInt("color"));
+                //recovering from bundle stored brush_width
+                setBrushWidth(bundle.getInt("brush_width"));
+                //recovering from bundle stored brush_type
+                if(bundle.getInt("brush_type") == 0){
+                    setBrush(Paint.Cap.ROUND);
+                }else{
+                    setBrush(Paint.Cap.SQUARE);
+                }
+
                 // load cache file from bundle stored filename
                 File f = new File(bundle.getString("tempfile"));
                 Log.e("Loading file", bundle.getString("tempfile"));
@@ -176,7 +198,8 @@ public class FingerPainterView extends View {
                     // attempt to load the uri provided, scale to fit our canvas
                     InputStream stream = context.getContentResolver().openInputStream(uri);
                     Bitmap bm = BitmapFactory.decodeStream(stream);
-                    Log.d("Current:", "w"+w+"h"+h);
+                    Log.d("Original:", "w"+bm.getWidth()+"h"+bm.getHeight());
+                    //changed Math.max(w,h) to w so the image will fit the screen.
                     bitmap  = Bitmap.createScaledBitmap(bm, w, h, false);
                     Log.d("Converted:", "w"+bitmap.getWidth()+"h"+bitmap.getHeight());
 
@@ -189,6 +212,7 @@ public class FingerPainterView extends View {
             else {
                 // create a square bitmap so is drawable even after rotation to landscape
                 bitmap = Bitmap.createBitmap(h, w, Bitmap.Config.ARGB_8888);
+                Log.d("Converted:", "w"+bitmap.getWidth()+"h"+bitmap.getHeight());
             }
         }
         canvas = new Canvas(bitmap);
