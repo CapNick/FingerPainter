@@ -91,10 +91,12 @@
         </LinearLayout>
 
         <Button
-            android:text="Done"
+            android:text="@string/done"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/btnReturn"
+            style="@style/Widget.AppCompat.Button"
+            android:textAlignment="center"
             android:onClick="returnToMain" />
 
     </LinearLayout>

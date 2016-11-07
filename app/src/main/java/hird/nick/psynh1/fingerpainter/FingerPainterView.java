@@ -176,6 +176,7 @@ public class FingerPainterView extends View {
                     // attempt to load the uri provided, scale to fit our canvas
                     InputStream stream = context.getContentResolver().openInputStream(uri);
                     Bitmap bm = BitmapFactory.decodeStream(stream);
+                    Log.d("Current:", "w"+w+"h"+h);
                     bitmap  = Bitmap.createScaledBitmap(bm, Math.max(w, h), Math.max(w, h), false);
                     stream.close();
                     bm.recycle();

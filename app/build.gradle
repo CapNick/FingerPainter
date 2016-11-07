@@ -25,8 +25,4 @@ dependencies {
     })
     compile 'com.android.support:appcompat-v7:24.2.1'
     testCompile 'junit:junit:4.12'
-    //https://github.com/syedowaisali/crystal-range-seekbar
-    // LICENSE: http://www.apache.org/licenses/LICENSE-2.0
-    compile 'com.crystal:crystalrangeseekbar:1.1.1'
-
 }

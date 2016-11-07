@@ -1,13 +1,12 @@
 package hird.nick.psynh1.fingerpainter;
 
+import android.app.Activity;
 import android.content.Intent;
-import android.graphics.Color;
 import android.graphics.Paint;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.ImageButton;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -19,26 +18,22 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        fingerView = (FingerPainterView)findViewById(R.id.fingerView);
+        fingerView = (FingerPainterView) findViewById(R.id.fingerView);
         fingerView.load(getIntent().getData());
-
     }
-
-//    @Override
-//    protected void onDestroy(){
-//
-//    }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+//        Color Select
         if (requestCode == CHANGE_COLOR_REQUEST_CODE){
             if (resultCode == RESULT_OK){
                 Log.d("Restult Recivied", ""+data.getExtras().getInt("Color"));
                 fingerView.setColour(data.getExtras().getInt("Color"));
-//                btnImageColorPreview.setBackgroundColor(data.getExtras().getInt("Color"));
-
             }
         }
+
+//        Brush Select
         if (requestCode == CHANGE_BRUSH_REQUEST_CODE){
             if (resultCode == RESULT_OK){
                 Log.d("Restult Recivied", ""+data.getExtras().getInt("BrushSize"));
@@ -52,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
                 fingerView.setBrushWidth(data.getExtras().getInt("BrushSize"));
             }
         }
+
     }
 
     public void switchToColor(View v){
