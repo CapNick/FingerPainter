@@ -211,7 +211,7 @@ public class FingerPainterView extends View {
             }
             else {
                 // create a square bitmap so is drawable even after rotation to landscape
-                bitmap = Bitmap.createBitmap(h, w, Bitmap.Config.ARGB_8888);
+                bitmap = Bitmap.createBitmap(w, h, Bitmap.Config.ARGB_8888);
                 Log.d("Converted:", "w"+bitmap.getWidth()+"h"+bitmap.getHeight());
             }
         }
